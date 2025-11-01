@@ -1,0 +1,132 @@
+body {
+    text-align: center;
+    background-color: rgb(241, 142, 220);
+    font-family: monospace;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1 {
+    color: rgba(255, 0, 0, 0.395);
+    margin-top: 4%;
+}
+.buttonsOnly {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin: 1%;
+}
+
+.btn-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 80px;
+    z-index: 5;
+    position: relative;
+}
+
+button {
+    background-color: rgb(248, 128, 178);
+    padding: 12px 24px;
+    outline: none;
+    color:  rgb(242, 0, 0);
+    border: 2px solid rgb(230, 81, 143);
+    transform-origin: center center;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ffe5fd;
+}
+
+.heart {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    animation: pump 1s infinite;
+    z-index: 1;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -100px;
+    left: 0;
+}
+
+.heart::after {
+    left: 100px;
+    top: 0;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+}
+
+.popup-content {
+    background: rgb(235, 141, 171);
+    border: 2px solid rgb(230, 81, 143);
+    border-radius: 15px;
+    padding: 20px 40px;
+    font-family: monospace;
+    color: rgb(242, 0, 0);
+    box-shadow: 0 0 20px rgb(62, 0, 16);
+    text-align: center;
+    animation: pop 0.2s ease-out;
+}
+
+.popup-content p {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.popup-content button {
+    background-color: #ffe5fd;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: rgb(230, 81, 143);
+    font-weight: bold;
+}
+
+.popup-content button:hover {
+    background-color: #ffe5fd;
+}
+
+
+@keyframes pop {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes pump {
+    0%, 100% {
+        transform: translate(-50%, -50%) rotate(-45deg) scale(1);
+    } 
+    50% {
+        transform: translate(-50%, -50%) rotate(-45deg) scale(1.2);
+    }
+}
